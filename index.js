@@ -23,6 +23,8 @@ mongoose.connect(process.env.DATABASE, {
 app.get('/', (req, res, next) => {
   res.send("hello form por 5000, this is the api!")
 })
+app.use('/api/users', require('./routes/auth'));
+
 
 // Listen to Port Setup
 const port = process.env.PORT
