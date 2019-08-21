@@ -1,12 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
 // missing importing libs
 
 const app = express();
+require('dotenv').config();
 
 // Middlewares
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+//app.use(expressValidator());
 
 // Database Setup
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useCreateIndex: true
+}).then(()=> { console.log("Database connected")})
 
 // Routes Setup
 app.get('/', (req, res, next) => {
@@ -14,8 +25,8 @@ app.get('/', (req, res, next) => {
 })
 
 // Listen to Port Setup
-const port = process.env.PORT || 5000;
+const port = process.env.PORT
 
 app.listen(port, () => {
-  console.log(`learning platform api server runing on port ${port}`)
+  console.log(`learning platform api server runing on port ${port}`);
 })
