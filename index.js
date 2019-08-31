@@ -24,6 +24,8 @@ app.get('/', (req, res, next) => {
   res.send("hello form por 5000, this is the api!")
 })
 app.use('/api/users', require('./routes/auth'));
+app.use('/api/videogames', require('./routes/videogames'));
+app.use('/api/category', require('./routes/category'));
 
 
 // Listen to Port Setup
