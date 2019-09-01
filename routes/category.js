@@ -1,13 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const {isAuth} = require('../controllers/authController');
-const {remove,create} = require('../controllers/categoryController')
-const {userById} = require('../controllers/authController')
+const {requireSignin, isAuth} = require('../controllers/authController')              
+const { create,remove } = require('../controllers/categoryController');
 
-router.post('/create/:userId',create, isAuth)
-router.delete('/:categoryId/:userId',remove, isAuth);
-
-router.param('userId', userById);
+router.post('/create/:userId', create, requireSignin, isAuth);
+router.delete('/:categoryId/:userId',remove, requireSignin, isAuth)
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { ObjectId } = mongoose.Schema;
+const { ObjectId } = mongoose.Schema
 
 const videogameSchema = new mongoose.Schema(
   {
@@ -18,6 +18,7 @@ const videogameSchema = new mongoose.Schema(
     price: {
       type: Number,
       trim: true,
+      require: true,
       maxlength: 32
     },
     category: {
@@ -28,20 +29,12 @@ const videogameSchema = new mongoose.Schema(
     quantity: {
       type: Number,
     },
-    sold: {
-      type: Number,
-      default: 0
-    },
     photo: {
       data: Buffer,
       contentType: String
     },
-    shipping: {
-      required: false,
-      type: Boolean
-    }
   },
   {timestamps: true}
 );
 
-module.exports = mongoose.model("VideoGame",videogameSchema);
+module.exports = mongoose.model("VideoGame", videogameSchema);

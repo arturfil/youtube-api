@@ -1,14 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const {userById, isAuth} = require('../controllers/authController');
-const {list, create,remove, videogameById} = require('../controllers/videogamesController');
+const { list, create, remove, videogameById} = require('../controllers/videogamesController');
+const { requireSignin, isAuth, userById } = require('../controllers/authController');
 
-router.get('/', list);
-router.post('/create/:userId',create, isAuth);
-router.delete('/:videogameId/:userId',remove, isAuth);
+// list 
+router.get('/videogames', list)
+// create videogame
+router.post('/create/:userId', create, isAuth, requireSignin)
+// delete
+router.delete('/:videogameId/:userId', remove, isAuth, requireSignin)
 
+// parameters
 router.param("userId", userById);
-router.param("videogameId", videogameById);
+router.param("", videogameById);
 
 module.exports = router;
