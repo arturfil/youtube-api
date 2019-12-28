@@ -4,7 +4,7 @@ In order to make this project work you will need to clone it.
 
 After clonning it you will have to run an instance of mongod
 
-Lastly, make sure you have a .env file with name of the database, a secret key and a port like so:
+Make sure you have a .env file with name of the database, a secret key and a port like so:
 
 DATABASE=mongodb://localhost/database_name <br/>
 JWT_SECRET=anywordsScrambled <br/>
