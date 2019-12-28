@@ -6,14 +6,14 @@ After clonning it you will have to run an instance of mongod
 
 Lastly, make sure you have a .env file with name of the database, a secret key and a port like so:
 
-DATABASE=mongodb://localhost/database_name
-JWT_SECRET=anywordsScrambled
-PORT=5000
+DATABASE=mongodb://localhost/database_name <br/>
+JWT_SECRET=anywordsScrambled <br/>
+PORT=5000 <br/>
 
-After this run this command to make sure to have all dependencies
-  npm install
+After this run this command to make sure to have all dependencies:<br/>
+  npm install<br/>
   
-And lastly, run this command:
+And lastly, run this command:<br/>
 
   npm run dev
 
