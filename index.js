@@ -25,7 +25,7 @@ app.get('/', (req, res, next) => {
 })
 app.use('/api/users', require('./routes/auth'));
 app.use('/api/category', require('./routes/category'));
-app.use('/api/videogame', require('./routes/videogames'));
+app.use('/api/videogame', require('./routes/videogame'));
 
 
 // Listen to Port Setup

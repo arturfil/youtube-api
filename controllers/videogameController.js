@@ -73,7 +73,7 @@ exports.remove = (req, res) => {
       });
     }
     res.json({
-      message: "Product deleted successfully"
+      message: "Videogame deleted successfully"
     })
   })
 }
@@ -91,4 +91,12 @@ exports.videogameById = (req, res, next, id) => {
       req.videogame = videogame;
       next();
     })
+}
+
+exports.photo = (req, res, next) => {
+  if (req.videogame.photo.data) {
+    res.set('Content-Type', req.videogame.photo.contentType)
+    return res.send(req.videogame.photo.data)
+  }
+  next();
 }
