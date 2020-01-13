@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const expressValidator = require('express-validator');
 // missing importing libs
 
@@ -11,6 +12,7 @@ require('dotenv').config();
 // Middlewares
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(cors());
 //app.use(expressValidator());
 
 // Database Setup
